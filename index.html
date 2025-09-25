@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Moja pozvánka</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/blasten/turn.js@4/lib/turn.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #eaeaea;
+      height: 100vh;
+      margin: 0;
+    }
+    #pozvanka {
+      width: 800px;
+      height: 600px;
+    }
+    #pozvanka .page {
+      width: 100%;
+      height: 100%;
+    }
+    #pozvanka img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+<div id="pozvanka">
+  <div class="page"><img src="strana1.jpg" alt="Strana 1"></div>
+  <div class="page"><img src="strana2.jpg" alt="Strana 2"></div>
+  <div class="page"><img src="strana3.jpg" alt="Strana 3"></div>
+  <div class="page"><img src="strana4.jpg" alt="Strana 4"></div>
+</div>
+
+<script>
+  $("#pozvanka").turn({
+    width: 800,
+    height: 600,
+    autoCenter: true
+  });
+
+  // Automatické otočenie strany každých 5 sekúnd
+  let currentPage = 1;
+  const totalPages = $("#pozvanka").turn("pages");
+  setInterval(() => {
+    currentPage++;
+    if(currentPage > totalPages) currentPage = 1;
+    $("#pozvanka").turn("page", currentPage);
+  }, 5000);
+</script>
+
+</body>
+</html>
