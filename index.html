@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Moja pozvánka</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://www.turnjs.com/lib/turn.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #eaeaea;
+      height: 100vh;
+      margin: 0;
+    }
+    #pozvanka {
+      width: 800px;
+      height: 600px;
+    }
+    #pozvanka img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div id="pozvanka">
+    <div><img src="strana1.jpg" alt="Strana 1"></div>
+    <div><img src="strana2.jpg" alt="Strana 2"></div>
+  </div>
+
+  <script>
+    $("#pozvanka").turn({
+      width: 800,
+      height: 600,
+      autoCenter: true
+    });
+  </script>
+</body>
+</html>
